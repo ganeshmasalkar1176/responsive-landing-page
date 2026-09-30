@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Viewport tag: required for media queries to work on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TidySheet – Clean messy spreadsheets in one click</title>
+  <meta name="description" content="TidySheet fixes duplicates, dates and spacing in your spreadsheets automatically.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ========== HEADER + NAVIGATION ========== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="TidySheet home">Tidy<span>Sheet</span></a>
+
+      <!-- Hamburger: visible on mobile only (see CSS). JS toggles aria-expanded + .open -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a class="btn btn-small" href="#cta">Try it free</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Your spreadsheet, without the mess.</h1>
+          <p>Paste in a file full of duplicates, odd dates and stray spaces. TidySheet fixes them in seconds and shows every change.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#cta">Clean my first sheet</a>
+            <a class="btn btn-ghost" href="#how">See how it works</a>
+          </div>
+        </div>
+
+        <!-- Interactive demo: the hero's memorable moment. Toggled by js/main.js -->
+        <div class="demo" aria-live="polite">
+          <table id="demo-table">
+            <caption class="sr-only">Sample customer data before and after cleaning</caption>
+            <thead><tr><th>Name</th><th>Joined</th><th>City</th></tr></thead>
+            <tbody>
+              <tr><td data-raw="  ravi  patil " data-clean="Ravi Patil"></td><td data-raw="5/3/26" data-clean="05 Mar 2026"></td><td data-raw="pune " data-clean="Pune"></td></tr>
+              <tr><td data-raw="ANITA DESAI" data-clean="Anita Desai"></td><td data-raw="2026.03.07" data-clean="07 Mar 2026"></td><td data-raw="NASHIK" data-clean="Nashik"></td></tr>
+              <tr class="dupe"><td data-raw="ravi patil" data-clean="Ravi Patil (duplicate removed)"></td><td data-raw="5 March" data-clean="—"></td><td data-raw="Pune" data-clean="—"></td></tr>
+            </tbody>
+          </table>
+          <button class="btn demo-btn" id="demo-toggle" type="button">Clean it</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES (CSS Grid) ========== -->
+    <section class="section" id="features">
+      <div class="container">
+        <h2>Three fixes that save your afternoon</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Remove duplicates</h3>
+            <p>Finds rows that are the same person written two ways, and keeps the best one.</p>
+          </article>
+          <article class="card">
+            <h3>Fix dates and text</h3>
+            <p>Turns 5/3/26, 2026.03.05 and "5 March" into one format. Trims spaces and fixes capital letters.</p>
+          </article>
+          <article class="card">
+            <h3>See every change</h3>
+            <p>Each edit is highlighted and can be undone, so nothing changes without you knowing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS (a real sequence, so numbered) ========== -->
+    <section class="section alt" id="how">
+      <div class="container">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li><strong>Upload</strong> an Excel or CSV file.</li>
+          <li><strong>Review</strong> the highlighted changes.</li>
+          <li><strong>Download</strong> the clean file.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========== PRICING ========== -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <h2>Simple pricing</h2>
+        <div class="grid two">
+          <article class="card">
+            <h3>Free</h3>
+            <p class="price">₹0</p>
+            <p>Up to 500 rows per file. Good for trying it out.</p>
+          </article>
+          <article class="card featured">
+            <h3>Pro</h3>
+            <p class="price">₹399<small>/month</small></p>
+            <p>Unlimited rows, saved cleaning rules and priority support.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CALL TO ACTION ========== -->
+    <section class="section cta" id="cta">
+      <div class="container narrow">
+        <h2>Get your sheet clean today</h2>
+        <form id="signup" novalidate>
+          <label for="email">Email address</label>
+          <div class="form-row">
+            <input id="email" type="email" placeholder="you@example.com" required autocomplete="email">
+            <button class="btn" type="submit">Start free</button>
+          </div>
+          <p class="form-msg" id="form-msg" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> TidySheet. A portfolio project.</p>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#cta">Sign up</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
